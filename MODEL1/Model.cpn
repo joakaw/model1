@@ -18,39 +18,39 @@
       </block>
       <block id="ID1">
         <id>Standard declarations</id>
-        <color id="ID1412366127">
-          <id>CONTROLLER</id>
-          <bool>
-            <with>
-              <id>free</id>
-              <id>busy</id>
-            </with>
-          </bool>
-          <layout>colset CONTROLLER = bool with(free, busy);</layout>
-        </color>
-        <color id="ID1412324524">
-          <id>LUGGAGE</id>
-          <string/>
-          <layout>colset LUGGAGE = string;</layout>
-        </color>
-        <color id="ID1412324329">
-          <id>HAND_LUGGAGE</id>
-          <string/>
-          <layout>colset HAND_LUGGAGE=string;</layout>
-        </color>
-        <color id="ID1412324223">
-          <id>PERSON</id>
-          <string/>
-          <layout>colset PERSON = string;</layout>
-        </color>
-        <color id="ID1412324742">
-          <id>PERSONxHAND_LUGGAGE</id>
-          <product>
-            <id>PERSON</id>
+        <block id="ID1412473537">
+          <id>basics</id>
+          <color id="ID1412468866">
+            <id>ID</id>
+            <int/>
+            <layout>colset ID = int;</layout>
+          </color>
+          <color id="ID1412366127">
+            <id>CONTROLLER</id>
+            <bool>
+              <with>
+                <id>free</id>
+                <id>busy</id>
+              </with>
+            </bool>
+            <layout>colset CONTROLLER = bool with(free, busy);</layout>
+          </color>
+          <color id="ID1412324329">
             <id>HAND_LUGGAGE</id>
-          </product>
-          <layout>colset PERSONxHAND_LUGGAGE = product PERSON*HAND_LUGGAGE;</layout>
-        </color>
+            <string/>
+            <layout>colset HAND_LUGGAGE=string;</layout>
+          </color>
+          <color id="ID1412324223">
+            <id>PERSON</id>
+            <string/>
+            <layout>colset PERSON = string;</layout>
+          </color>
+          <color id="ID1412469693">
+            <id>LUGGAGE</id>
+            <string/>
+            <layout>colset LUGGAGE = string;</layout>
+          </color>
+        </block>
         <color id="ID1412324627">
           <id>TRAVELLER</id>
           <product>
@@ -60,59 +60,108 @@
           </product>
           <layout>colset TRAVELLER = product PERSON*HAND_LUGGAGE*LUGGAGE;</layout>
         </color>
-        <var id="ID1412333267">
-          <type>
-            <id>PERSON</id>
-          </type>
-          <id>person</id>
-          <layout>var person:PERSON;</layout>
-        </var>
-        <var id="ID1412339455">
-          <type>
-            <id>LUGGAGE</id>
-          </type>
-          <id>luggage</id>
-          <layout>var luggage:LUGGAGE;</layout>
-        </var>
-        <var id="ID1412337200">
-          <type>
-            <id>HAND_LUGGAGE</id>
-          </type>
-          <id>hand_luggage</id>
-          <layout>var hand_luggage:HAND_LUGGAGE;</layout>
-        </var>
-        <color id="ID85042">
-          <id>UNIT</id>
-          <unit/>
-          <layout>colset UNIT = unit;</layout>
-        </color>
-        <color id="ID4">
-          <id>BOOL</id>
-          <bool/>
-        </color>
-        <color id="ID3">
-          <id>INT</id>
-          <int/>
-        </color>
-        <color id="ID1412312409">
-          <id>INTINF</id>
-          <intinf/>
-          <layout>colset INTINF = intinf;</layout>
-        </color>
-        <color id="ID1412312425">
-          <id>TIME</id>
-          <time/>
-          <layout>colset TIME = time;</layout>
-        </color>
-        <color id="ID1412322990">
-          <id>REAL</id>
-          <real/>
-          <layout>colset REAL = real;</layout>
-        </color>
-        <color id="ID5">
-          <id>STRING</id>
-          <string/>
-        </color>
+        <block id="ID1412470248">
+          <id>withID</id>
+          <color id="ID1412469838">
+            <id>IDxPERSONxHAND_LUGGAGE</id>
+            <product>
+              <id>ID</id>
+              <id>PERSON</id>
+              <id>HAND_LUGGAGE</id>
+            </product>
+            <layout>colset IDxPERSONxHAND_LUGGAGE = product ID*PERSON*HAND_LUGGAGE;</layout>
+          </color>
+          <color id="ID1412469259">
+            <id>IDxLUGGAGE</id>
+            <product>
+              <id>ID</id>
+              <id>LUGGAGE</id>
+            </product>
+            <layout>colset IDxLUGGAGE = product ID*LUGGAGE;</layout>
+          </color>
+          <color id="ID1412469048">
+            <id>IDxHAND_LUGGAGE</id>
+            <product>
+              <id>ID</id>
+              <id>HAND_LUGGAGE</id>
+            </product>
+            <layout>colset IDxHAND_LUGGAGE = product ID*HAND_LUGGAGE;</layout>
+          </color>
+          <color id="ID1412468955">
+            <id>IDxPERSON</id>
+            <product>
+              <id>ID</id>
+              <id>PERSON</id>
+            </product>
+            <layout>colset IDxPERSON = product ID*PERSON;</layout>
+          </color>
+        </block>
+        <block id="ID1412471050">
+          <id>variables</id>
+          <var id="ID1412475353">
+            <type>
+              <id>ID</id>
+            </type>
+            <id>id</id>
+            <layout>var id:ID;</layout>
+          </var>
+          <var id="ID1412333267">
+            <type>
+              <id>PERSON</id>
+            </type>
+            <id>person</id>
+            <layout>var person:PERSON;</layout>
+          </var>
+          <var id="ID1412339455">
+            <type>
+              <id>LUGGAGE</id>
+            </type>
+            <id>luggage</id>
+            <layout>var luggage:LUGGAGE;</layout>
+          </var>
+          <var id="ID1412337200">
+            <type>
+              <id>HAND_LUGGAGE</id>
+            </type>
+            <id>hand_luggage</id>
+            <layout>var hand_luggage:HAND_LUGGAGE;</layout>
+          </var>
+        </block>
+        <block id="ID1412471773">
+          <id>standard</id>
+          <color id="ID85042">
+            <id>UNIT</id>
+            <unit/>
+            <layout>colset UNIT = unit;</layout>
+          </color>
+          <color id="ID4">
+            <id>BOOL</id>
+            <bool/>
+          </color>
+          <color id="ID3">
+            <id>INT</id>
+            <int/>
+          </color>
+          <color id="ID1412312409">
+            <id>INTINF</id>
+            <intinf/>
+            <layout>colset INTINF = intinf;</layout>
+          </color>
+          <color id="ID1412312425">
+            <id>TIME</id>
+            <time/>
+            <layout>colset TIME = time;</layout>
+          </color>
+          <color id="ID1412322990">
+            <id>REAL</id>
+            <real/>
+            <layout>colset REAL = real;</layout>
+          </color>
+          <color id="ID5">
+            <id>STRING</id>
+            <string/>
+          </color>
+        </block>
       </block>
     </globbox>
     <page id="ID6">
@@ -132,8 +181,8 @@
 hand luggage control</text>
         <ellipse w="164.000000"
                  h="62.000000"/>
-        <token x="-185.000000"
-               y="55.000000"/>
+        <token x="-189.000000"
+               y="57.000000"/>
         <marking x="0.000000"
                  y="0.000000"
                  hidden="false">
@@ -153,7 +202,7 @@ hand luggage control</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">PERSONxHAND_LUGGAGE</text>
+                version="4.0.1">IDxPERSONxHAND_LUGGAGE</text>
         </type>
         <initmark id="ID1412325299">
           <posattr x="-615.000000"
@@ -167,7 +216,7 @@ hand luggage control</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">(&quot;AdamDupa&quot;, &quot;bad&quot;)</text>
+                version="4.0.1">(1,&quot;AdamDupa&quot;, &quot;bad&quot;)</text>
         </initmark>
       </place>
       <place id="ID1412341903">
@@ -195,7 +244,7 @@ under control</text>
                 anchor.vertical="0"/>
         </marking>
         <type id="ID1412341904">
-          <posattr x="-143.000000"
+          <posattr x="-132.500000"
                    y="122.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -206,7 +255,7 @@ under control</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">HAND_LUGGAGE</text>
+                version="4.0.1">IDxHAND_LUGGAGE</text>
         </type>
         <initmark id="ID1412341905">
           <posattr x="-162.000000"
@@ -248,7 +297,7 @@ under control</text>
                 anchor.vertical="0"/>
         </marking>
         <type id="ID1412342524">
-          <posattr x="-169.500000"
+          <posattr x="-159.000000"
                    y="-91.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -259,7 +308,7 @@ under control</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">PERSON</text>
+                version="4.0.1">IDxPERSON</text>
         </type>
         <initmark id="ID1412342525">
           <posattr x="-163.000000"
@@ -383,8 +432,8 @@ controller</text>
         </initmark>
       </place>
       <place id="ID1412394174">
-        <posattr x="282.000000"
-                 y="46.000000"/>
+        <posattr x="391.000000"
+                 y="-126.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -407,8 +456,8 @@ hand luggage control</text>
                 anchor.vertical="0"/>
         </marking>
         <type id="ID1412394175">
-          <posattr x="295.000000"
-                   y="3.000000"/>
+          <posattr x="404.000000"
+                   y="-169.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -418,11 +467,11 @@ hand luggage control</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">PERSONxHAND_LUGGAGE</text>
+                version="4.0.1">IDxPERSONxHAND_LUGGAGE</text>
         </type>
         <initmark id="ID1412394176">
-          <posattr x="373.000000"
-                   y="77.000000"/>
+          <posattr x="482.000000"
+                   y="-94.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -460,8 +509,8 @@ luggage</text>
                 anchor.vertical="0"/>
         </marking>
         <type id="ID1412421140">
-          <posattr x="194.000000"
-                   y="122.000000"/>
+          <posattr x="122.000000"
+                   y="112.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -471,7 +520,7 @@ luggage</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">HAND_LUGGAGE</text>
+                version="4.0.1">IDxHAND_LUGGAGE</text>
         </type>
         <initmark id="ID1412421141">
           <posattr x="175.000000"
@@ -513,8 +562,8 @@ person</text>
                 anchor.vertical="0"/>
         </marking>
         <type id="ID1412423346">
-          <posattr x="169.500000"
-                   y="-91.000000"/>
+          <posattr x="106.000000"
+                   y="-99.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -524,7 +573,7 @@ person</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">PERSON</text>
+                version="4.0.1">IDxPERSON</text>
         </type>
         <initmark id="ID1412423347">
           <posattr x="176.000000"
@@ -550,7 +599,7 @@ person</text>
                   filled="false"/>
         <lineattr colour="Black"
                   thick="1"
-                  type="Solid"/>
+                  type="solid"/>
         <textattr colour="Black"
                   bold="false"/>
         <text>set luggage
@@ -625,7 +674,7 @@ to control</text>
                   filled="false"/>
         <lineattr colour="Black"
                   thick="1"
-                  type="Solid"/>
+                  type="solid"/>
         <textattr colour="Black"
                   bold="false"/>
         <text>luggage
@@ -700,7 +749,7 @@ control</text>
                   filled="false"/>
         <lineattr colour="Black"
                   thick="1"
-                  type="Solid"/>
+                  type="solid"/>
         <textattr colour="Black"
                   bold="false"/>
         <text>person
@@ -766,10 +815,10 @@ control</text>
                 version="4.0.1"/>
         </priority>
       </trans>
-      <trans id="ID1412450474"
+      <trans id="ID1412483881"
              explicit="false">
         <posattr x="282.000000"
-                 y="146.000000"/>
+                 y="13.000000"/>
         <fillattr colour="White"
                   pattern=""
                   filled="false"/>
@@ -778,15 +827,15 @@ control</text>
                   type="Solid"/>
         <textattr colour="Black"
                   bold="false"/>
-        <text>return
+        <text>return 
 luggage</text>
         <box w="60.000000"
              h="40.000000"/>
         <binding x="7.200000"
                  y="-3.000000"/>
-        <cond id="ID1412450475">
+        <cond id="ID1412483882">
           <posattr x="243.000000"
-                   y="177.000000"/>
+                   y="44.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -798,9 +847,9 @@ luggage</text>
           <text tool="CPN Tools"
                 version="4.0.1"/>
         </cond>
-        <time id="ID1412450476">
+        <time id="ID1412483883">
           <posattr x="326.500000"
-                   y="177.000000"/>
+                   y="44.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -812,9 +861,9 @@ luggage</text>
           <text tool="CPN Tools"
                 version="4.0.1"/>
         </time>
-        <code id="ID1412450477">
+        <code id="ID1412483884">
           <posattr x="346.500000"
-                   y="94.000000"/>
+                   y="-39.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -826,84 +875,9 @@ luggage</text>
           <text tool="CPN Tools"
                 version="4.0.1"/>
         </code>
-        <priority id="ID1412450479">
+        <priority id="ID1412483886">
           <posattr x="214.000000"
-                   y="115.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1"/>
-        </priority>
-      </trans>
-      <trans id="ID1412452028"
-             explicit="false">
-        <posattr x="282.000000"
-                 y="-68.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <text>take
-luggage</text>
-        <box w="60.000000"
-             h="40.000000"/>
-        <binding x="7.200000"
-                 y="-3.000000"/>
-        <cond id="ID1412452029">
-          <posattr x="243.000000"
-                   y="-37.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1"/>
-        </cond>
-        <time id="ID1412452030">
-          <posattr x="326.500000"
-                   y="-37.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1"/>
-        </time>
-        <code id="ID1412452031">
-          <posattr x="346.500000"
-                   y="-120.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1"/>
-        </code>
-        <priority id="ID1412452033">
-          <posattr x="214.000000"
-                   y="-99.000000"/>
+                   y="-18.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -934,7 +908,7 @@ luggage</text>
         <transend idref="ID1412326244"/>
         <placeend idref="ID1412325297"/>
         <annot id="ID1412327522">
-          <posattr x="-492.500000"
+          <posattr x="-483.000000"
                    y="32.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -945,7 +919,7 @@ luggage</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">(person, hand_luggage)</text>
+                version="4.0.1">(id, person, hand_luggage)</text>
         </annot>
       </arc>
       <arc id="ID1412348697"
@@ -966,7 +940,7 @@ luggage</text>
         <transend idref="ID1412326244"/>
         <placeend idref="ID1412341903"/>
         <annot id="ID1412348698">
-          <posattr x="-357.500000"
+          <posattr x="-370.000000"
                    y="110.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -977,7 +951,7 @@ luggage</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">hand_luggage</text>
+                version="4.0.1">(id,hand_luggage)</text>
         </annot>
       </arc>
       <arc id="ID1412353346"
@@ -998,7 +972,7 @@ luggage</text>
         <transend idref="ID1412326244"/>
         <placeend idref="ID1412342523"/>
         <annot id="ID1412353347">
-          <posattr x="-343.000000"
+          <posattr x="-355.500000"
                    y="-19.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
@@ -1009,7 +983,7 @@ luggage</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">person</text>
+                version="4.0.1">(id,person)</text>
         </annot>
       </arc>
       <arc id="ID1412362276"
@@ -1041,7 +1015,7 @@ luggage</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">hand_luggage</text>
+                version="4.0.1">(id,hand_luggage)</text>
         </annot>
       </arc>
       <arc id="ID1412363796"
@@ -1073,7 +1047,7 @@ luggage</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">person</text>
+                version="4.0.1">(id,person)</text>
         </annot>
       </arc>
       <arc id="ID1412382788"
@@ -1233,7 +1207,7 @@ luggage</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">hand_luggage</text>
+                version="4.0.1">(id,hand_luggage)</text>
         </annot>
       </arc>
       <arc id="ID1412446709"
@@ -1265,10 +1239,10 @@ luggage</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">person</text>
+                version="4.0.1">(id,person)</text>
         </annot>
       </arc>
-      <arc id="ID1412460567"
+      <arc id="ID1412486458"
            orientation="PtoT"
            order="1">
         <posattr x="0.000000"
@@ -1283,11 +1257,11 @@ luggage</text>
                   bold="false"/>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
-        <transend idref="ID1412450474"/>
+        <transend idref="ID1412483881"/>
         <placeend idref="ID1412421139"/>
-        <annot id="ID1412460568">
-          <posattr x="204.000000"
-                   y="157.000000"/>
+        <annot id="ID1412486459">
+          <posattr x="257.000000"
+                   y="89.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1297,10 +1271,10 @@ luggage</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">hand_luggage</text>
+                version="4.0.1">(id, hand_luggage)</text>
         </annot>
       </arc>
-      <arc id="ID1412463409"
+      <arc id="ID1412487601"
            orientation="PtoT"
            order="1">
         <posattr x="0.000000"
@@ -1315,11 +1289,11 @@ luggage</text>
                   bold="false"/>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
-        <transend idref="ID1412452028"/>
+        <transend idref="ID1412483881"/>
         <placeend idref="ID1412423345"/>
-        <annot id="ID1412463410">
-          <posattr x="204.000000"
-                   y="-57.000000"/>
+        <annot id="ID1412487602">
+          <posattr x="169.500000"
+                   y="-10.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1329,10 +1303,10 @@ luggage</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">person</text>
+                version="4.0.1">(id, person)</text>
         </annot>
       </arc>
-      <arc id="ID1412465989"
+      <arc id="ID1412488714"
            orientation="TtoP"
            order="1">
         <posattr x="0.000000"
@@ -1347,11 +1321,11 @@ luggage</text>
                   bold="false"/>
         <arrowattr headsize="1.200000"
                    currentcyckle="2"/>
-        <transend idref="ID1412450474"/>
+        <transend idref="ID1412483881"/>
         <placeend idref="ID1412394174"/>
-        <annot id="ID1412465990">
-          <posattr x="331.500000"
-                   y="101.000000"/>
+        <annot id="ID1412488715">
+          <posattr x="398.000000"
+                   y="-37.000000"/>
           <fillattr colour="White"
                     pattern="Solid"
                     filled="false"/>
@@ -1361,60 +1335,25 @@ luggage</text>
           <textattr colour="Black"
                     bold="false"/>
           <text tool="CPN Tools"
-                version="4.0.1">hand_luggage</text>
-        </annot>
-      </arc>
-      <arc id="ID1412468324"
-           orientation="TtoP"
-           order="1">
-        <posattr x="0.000000"
-                 y="0.000000"/>
-        <fillattr colour="White"
-                  pattern=""
-                  filled="false"/>
-        <lineattr colour="Black"
-                  thick="1"
-                  type="Solid"/>
-        <textattr colour="Black"
-                  bold="false"/>
-        <arrowattr headsize="1.200000"
-                   currentcyckle="2"/>
-        <transend idref="ID1412452028"/>
-        <placeend idref="ID1412394174"/>
-        <annot id="ID1412468325">
-          <posattr x="308.000000"
-                   y="-16.000000"/>
-          <fillattr colour="White"
-                    pattern="Solid"
-                    filled="false"/>
-          <lineattr colour="Black"
-                    thick="0"
-                    type="Solid"/>
-          <textattr colour="Black"
-                    bold="false"/>
-          <text tool="CPN Tools"
-                version="4.0.1">person</text>
+                version="4.0.1">(id, person, hand_luggage)</text>
         </annot>
       </arc>
       <constraints/>
       <hguideline id="ID1412326363"
                   y="-46.000000">
         <guideline_elm idref="ID1412326244"/>
-        <guideline_elm idref="ID1412394174"/>
       </hguideline>
       <hguideline id="ID1412356825"
                   y="-146.000000">
         <guideline_elm idref="ID1412354915"/>
         <guideline_elm idref="ID1412341903"/>
         <guideline_elm idref="ID1412421139"/>
-        <guideline_elm idref="ID1412450474"/>
       </hguideline>
       <hguideline id="ID1412357310"
                   y="68.000000">
         <guideline_elm idref="ID1412355955"/>
         <guideline_elm idref="ID1412342523"/>
         <guideline_elm idref="ID1412423345"/>
-        <guideline_elm idref="ID1412452028"/>
       </hguideline>
       <vguideline id="ID1412326499"
                   x="-614.000000">
@@ -1443,9 +1382,7 @@ luggage</text>
       </vguideline>
       <vguideline id="ID1412453358"
                   x="282.000000">
-        <guideline_elm idref="ID1412450474"/>
-        <guideline_elm idref="ID1412452028"/>
-        <guideline_elm idref="ID1412394174"/>
+        <guideline_elm idref="ID1412483881"/>
       </vguideline>
     </page>
     <instances>
@@ -1473,22 +1410,7 @@ luggage</text>
           <text>&lt;same as model&gt;</text>
         </value>
       </option>
-      <option name="extensions.10001.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
       <option name="extensions.10006.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10002.enable">
-        <value>
-          <boolean>true</boolean>
-        </value>
-      </option>
-      <option name="extensions.10008.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -1498,7 +1420,7 @@ luggage</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10004.enable">
+      <option name="extensions.10002.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -1508,12 +1430,27 @@ luggage</text>
           <boolean>true</boolean>
         </value>
       </option>
-      <option name="extensions.10003.enable">
+      <option name="extensions.10004.enable">
         <value>
           <boolean>true</boolean>
         </value>
       </option>
       <option name="extensions.10011.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10008.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10001.enable">
+        <value>
+          <boolean>true</boolean>
+        </value>
+      </option>
+      <option name="extensions.10003.enable">
         <value>
           <boolean>true</boolean>
         </value>
@@ -1726,14 +1663,14 @@ luggage</text>
     </options>
     <binders>
       <cpnbinder id="ID2222"
-                 x="232"
-                 y="154"
-                 width="1253"
-                 height="571">
+                 x="155"
+                 y="143"
+                 width="1411"
+                 height="519">
         <sheets>
           <cpnsheet id="ID2215"
-                    panx="85.000000"
-                    pany="24.000000"
+                    panx="56.000000"
+                    pany="51.000000"
                     zoom="1.000000"
                     instance="ID2149">
             <zorder>
@@ -1831,22 +1768,35 @@ luggage</text>
           <IndexNode expanded="true"/>
         </IndexNode>
         <IndexNode expanded="true">
+          <IndexNode expanded="false">
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+          </IndexNode>
           <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="true"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
-          <IndexNode expanded="false"/>
+          <IndexNode expanded="true">
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+          </IndexNode>
+          <IndexNode expanded="false">
+            <IndexNode expanded="true"/>
+            <IndexNode expanded="true"/>
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+          </IndexNode>
+          <IndexNode expanded="false">
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+            <IndexNode expanded="false"/>
+          </IndexNode>
         </IndexNode>
       </IndexNode>
       <IndexNode expanded="false"/>
